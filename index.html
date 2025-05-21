@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AliTiTi 华人导航</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      margin: 1rem auto;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .search-box {
+      text-align: center;
+      margin: 2rem auto;
+    }
+    .search-box input {
+      padding: 0.5rem;
+      width: 300px;
+      max-width: 80%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+    .card a {
+      display: block;
+      margin: 0.3rem 0;
+      color: #3498db;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AliTiTi 华人导航</h1>
+  </header>
+  <nav>
+    <a href="#news">新闻</a>
+    <a href="#video">视频</a>
+    <a href="#social">社交</a>
+    <a href="#ai">AI 工具</a>
+  </nav>
+  <div class="search-box">
+    <form action="https://www.google.com/search" method="get" target="_blank">
+      <input type="text" name="q" placeholder="Google 搜索…">
+    </form>
+  </div>
+  <div class="categories">
+    <div class="card" id="news">
+      <h3>📰 新闻</h3>
+      <a href="https://www.nytimes.com/" target="_blank">纽约时报</a>
+      <a href="https://www.voachinese.com/" target="_blank">美国之音</a>
+      <a href="https://www.worldjournal.com/" target="_blank">世界日报</a>
+    </div>
+    <div class="card" id="video">
+      <h3>🎬 视频</h3>
+      <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+      <a href="https://www.bilibili.tv/" target="_blank">Bilibili 国际版</a>
+      <a href="https://www.netflix.com/" target="_blank">Netflix</a>
+    </div>
+    <div class="card" id="social">
+      <h3>👥 社交</h3>
+      <a href="https://wx.qq.com/" target="_blank">微信网页版</a>
+      <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    </div>
+    <div class="card" id="ai">
+      <h3>🤖 AI 工具</h3>
+      <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
+      <a href="https://claude.ai/" target="_blank">Claude</a>
+      <a href="https://copilot.microsoft.com/" target="_blank">Bing Copilot</a>
+    </div>
+  </div>
+  <footer>
+    AliTiTi.com © 2025 | 免费为在美华人提供导航服务
+  </footer>
+</body>
+</html>
