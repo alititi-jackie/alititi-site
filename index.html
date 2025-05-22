@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -17,6 +16,7 @@
       color: #fff;
       padding: 1rem;
       text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     nav {
       margin: 1rem auto;
@@ -27,6 +27,11 @@
       color: #2c3e50;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease, text-decoration 0.3s ease;
+    }
+    nav a:hover {
+      color: #3498db;
+      text-decoration: underline;
     }
     .search-box {
       text-align: center;
@@ -39,10 +44,23 @@
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+    .search-box button {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: 1px solid #3498db;
+      background-color: #3498db;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .search-box button:hover {
+      background-color: #2980b9;
+    }
     .categories {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
       padding: 2rem;
       max-width: 1000px;
       margin: auto;
@@ -52,21 +70,34 @@
       padding: 1rem;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     .card h3 {
       margin-top: 0;
+      font-size: 1.2rem;
+      color: #2c3e50;
     }
     .card a {
       display: block;
       margin: 0.3rem 0;
       color: #3498db;
       text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .card a:hover {
+      color: #2980b9;
     }
     footer {
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
       color: #777;
+      background: #2c3e50;
+      color: #fff;
     }
   </style>
 </head>
@@ -77,7 +108,7 @@
   <nav>
     <a href="#common">常用</a>
     <a href="#news">新闻</a>
-    <a href="#shopping">购物</a>    
+    <a href="#shopping">购物</a>
     <a href="#video">视频</a>
     <a href="#social">社交</a>
     <a href="#ai">AI 工具</a>
@@ -86,6 +117,7 @@
   <div class="search-box">
     <form action="https://www.google.com/search" method="get" target="_blank">
       <input type="text" name="q" placeholder="Google 搜索…">
+      <button type="submit">搜索</button>
     </form>
   </div>
   <div class="categories">
@@ -97,20 +129,20 @@
       <a href="https://www.voachinese.com/" target="_blank">美国之音</a>
       <a href="https://www.worldjournal.com/" target="_blank">世界日报</a>
     </div>   
-      <div class="card" id="news">
-     <h3>📰 新闻</h3>
-     <a href="https://www.168worker.com/" target="_blank">美国华人168</a>
-     <a href="https://meiguogongzuo.com/" target="_blank">美国工作网</a>
-     <a href="https://www.nytimes.com/" target="_blank">纽约时报</a>
-     <a href="https://www.voachinese.com/" target="_blank">美国之音</a>
-     <a href="https://www.worldjournal.com/" target="_blank">世界日报</a>
+    <div class="card" id="news">
+      <h3>📰 新闻</h3>
+      <a href="https://www.168worker.com/" target="_blank">美国华人168</a>
+      <a href="https://meiguogongzuo.com/" target="_blank">美国工作网</a>
+      <a href="https://www.nytimes.com/" target="_blank">纽约时报</a>
+      <a href="https://www.voachinese.com/" target="_blank">美国之音</a>
+      <a href="https://www.worldjournal.com/" target="_blank">世界日报</a>
     </div>
     <div class="card" id="shopping">
-        <h3>📰 购物</h3>
-        <a href="https://Amazon.com/" target="_blank">亚马逊</a>
-        <a href="https://www.walmart.com/" target="_blank">沃尔玛</a>
-        <a href="https://www.ebay.com/" target="_blank">易趣</a>
-       </div>
+      <h3>🛒 购物</h3>
+      <a href="https://Amazon.com/" target="_blank">亚马逊</a>
+      <a href="https://www.walmart.com/" target="_blank">沃尔玛</a>
+      <a href="https://www.ebay.com/" target="_blank">易趣</a>
+    </div>
     <div class="card" id="video">
       <h3>🎬 视频</h3>
       <a href="https://www.youtube.com/" target="_blank">YouTube</a>
@@ -130,15 +162,15 @@
       <a href="https://claude.ai/" target="_blank">Claude</a>
       <a href="https://copilot.microsoft.com/" target="_blank">Bing Copilot</a>
     </div>
-      <div class="card" id="adult website">
-      <h3>🤖 成人网站</h3>
+    <div class="card" id="adult website">
+      <h3>🔞 成人网站</h3>
       <a href="https://www.pornhub.com/" target="_blank">Pornhub</a>
       <a href="https://xvidos.com/" target="_blank">Xvidos</a>
       <a href="https://xhamster.com/" target="_blank">Xhamster</a>
       <a href="https://redtube.com/" target="_blank">Redtube</a>
       <a href="https://youporn.com/" target="_blank">Youporn</a>
       <a href="https://4hu.tv/" target="_blank">4Hu</a>
-      </div>
+    </div>
   </div>
   <footer>
     AliTiTi.com © 2025 | 免费为在美华人提供导航服务
