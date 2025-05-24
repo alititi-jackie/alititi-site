@@ -1,176 +1,268 @@
-
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AliTiTi 华人导航</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #f9f9f9; color: #333; }
-    header { background: #2c3e50; color: #fff; padding: 1rem; text-align: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); position: relative; }
-    #weather-date { font-size: 0.9rem; position: absolute; right: 1rem; top: 0.5rem; }
-    .lang-toggle { position: absolute; left: 1rem; top: 0.5rem; background: #fff; color: #2c3e50; border: none; padding: 0.2rem 0.5rem; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALITITI.COM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #eef2f3;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            flex: 1;
+        }
+        .weather {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .search {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .search input[type="text"] {
+            width: 60%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 8px rgba(0,0,0,0.05);
+        }
+        .search input[type="text"]:focus {
+            border-color: #3399ff;
+            box-shadow: 0 0 10px rgba(51,153,255,0.2);
+        }
+        .nav, .categories, .card, .bookmark {
+            background: white;
+            margin: 10px auto;
+            padding: 10px;
+            max-width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .nav a, .categories a, .card a {
+            display: inline-block;
+            margin: 5px 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+        .nav a:hover, .categories a:hover, .card a:hover {
+            text-decoration: underline;
+        }
+        .card h3, .section h3 {
+            margin-top: 0;
+            font-size: 12px;
+        }
+        .bookmark {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .bookmark button {
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .bookmark button:hover {
+            background-color: #005fa3;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #888;
+            background-color: #eef2f3;
+        }
+        .section {
+            margin: 10px auto;
+            max-width: 90%;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .toggle {
+            cursor: pointer;
+            color: #0078d4;
+            font-size: 14px;
+            margin: 10px 0;
+            display: inline-block;
+        }
+        .hidden {
+            display: none;
+        }
+        .section-title {
+            font-size: 12px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function addBookmark() {
+            alert('请使用 Ctrl+D 收藏本网站，或在浏览器菜单中选择“添加书签”');
+        }
+        function getLocationWeather() {
+            const weatherElem = document.getElementById('weather');
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    weatherElem.textContent = `当前位置：纬度 ${lat.toFixed(2)}，经度 ${lon.toFixed(2)} | 今日天气请查看天气网站`;
+                }, () => {
+                    weatherElem.textContent = '无法获取当前位置，请检查浏览器设置';
+                });
+            } else {
+                weatherElem.textContent = '浏览器不支持地理定位';
+            }
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            getLocationWeather();
+        });
 
-    nav { position: sticky; top: 0; background: #fff; z-index: 1000; padding: 1rem 0; border-bottom: 1px solid #ddd; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-    nav a { margin: 0 1rem; color: #2c3e50; text-decoration: none; font-weight: bold; transition: color 0.3s ease, text-decoration 0.3s ease; }
-    nav a:hover { color: #3498db; text-decoration: underline; }
-
-    .search-box { text-align: center; margin: 2rem auto; }
-    .search-box input { padding: 0.5rem; width: 300px; max-width: 80%; border-radius: 5px; border: 1px solid #ccc; }
-    .search-box button { padding: 0.5rem 1rem; border-radius: 5px; border: 1px solid #3498db; background-color: #3498db; color: #fff; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease; }
-    .search-box button:hover { background-color: #2980b9; }
-
-    .card { background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; margin-bottom: 2rem; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-    .card h3 { margin-top: 0; font-size: 1.2rem; color: #2c3e50; }
-
-    .link-row { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0; }
-    .link-row a { flex: 1 1 calc(25% - 1rem); text-align: center; padding: 0.4rem 0.6rem; border-radius: 5px; background: #ecf0f1; border: 1px solid #ccc; color: #2c3e50; text-decoration: none; transition: all 0.3s ease; }
-    .link-row a:hover { background-color: #d0e4f7; color: #2980b9; }
-
-    .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 1rem; max-width: 1000px; margin: auto; }
-
-    footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #777; background: #2c3e50; color: #fff; }
-
-    #adult-links { display: none; }
-    #toggle-adult { margin-top: 0.5rem; background: #ccc; border: none; padding: 0.4rem 0.6rem; border-radius: 5px; cursor: pointer; font-weight: bold; }
-  </style>
+        function toggleAdult() {
+            const content = document.getElementById('adultContent');
+            content.classList.toggle('hidden');
+        }
+        function toggleSection(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('hidden');
+        }
+    </script>
 </head>
 <body>
-<header>
-  <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
-  <div id="weather-date"></div>
-  <h1 id="main-title">AliTiTi 华人导航</h1>
-</header>
+    <header>
+        <div class="logo">ALITITI.COM</div>
+        <div class="weather" id="weather">正在获取定位天气信息...</div>
+    </header>
 
-<nav>
-  <a href="#common">常用</a>
-  <a href="#news">新闻</a>
-  <a href="#shopping">购物</a>
-  <a href="#video">视频</a>
-  <a href="#social">社交</a>
-  <a href="#ai">AI 工具</a>
-  <a href="#adult">成人</a>
-</nav>
-
-<div class="search-box">
-  <form action="https://www.google.com/search" method="get" target="_blank">
-    <input type="text" name="q" placeholder="Google 搜索..." autofocus />
-    <button type="submit">搜索</button>
-  </form>
-</div>
-
-<div class="card" id="common">
-  <h3>🛠️ 常用</h3>
-  <div class="link-row">
-    <a href="https://www.168worker.com/" target="_blank">美国华人168</a>
-    <a href="https://meiguogongzuo.com/" target="_blank">美国工作网</a>
-    <a href="https://www.nytimes.com/" target="_blank">纽约时报</a>
-    <a href="https://www.voachinese.com/" target="_blank">美国之音</a>
-    <a href="https://www.worldjournal.com/" target="_blank">世界日报</a>
-    <a href="https://www.baidu.com" target="_blank">百度</a>
-    <a href="https://www.google.com" target="_blank">Google</a>
-    <a href="https://www.yahoo.com" target="_blank">Yahoo</a>
-    <a href="https://www.bing.com" target="_blank">Bing</a>
-    <a href="https://cn.bing.com" target="_blank">必应中国</a>
-  </div>
-</div>
-
-<div class="categories">
-  <div class="card" id="news">
-    <h3>📰 新闻</h3>
-    <a href="https://www.168worker.com/" target="_blank">美国华人168</a>
-    <a href="https://meiguogongzuo.com/" target="_blank">美国工作网</a>
-    <a href="https://www.nytimes.com/" target="_blank">纽约时报</a>
-    <a href="https://www.voachinese.com/" target="_blank">美国之音</a>
-    <a href="https://www.worldjournal.com/" target="_blank">世界日报</a>
-  </div>
-
-  <div class="card" id="shopping">
-    <h3>🛒 购物</h3>
-    <a href="https://Amazon.com/" target="_blank">亚马逊</a>
-    <a href="https://www.walmart.com/" target="_blank">沃尔玛</a>
-    <a href="https://www.ebay.com/" target="_blank">易趣</a>
-  </div>
-
-  <div class="card" id="video">
-    <h3>🎬 视频</h3>
-    <a href="https://www.youtube.com/" target="_blank">YouTube</a>
-    <a href="https://www.bilibili.tv/" target="_blank">Bilibili 国际版</a>
-    <a href="https://www.netflix.com/" target="_blank">Netflix</a>
-  </div>
-
-  <div class="card" id="social">
-    <h3>👥 社交</h3>
-    <a href="https://wx.qq.com/" target="_blank">微信网页版</a>
-    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-  </div>
-
-  <div class="card" id="ai">
-    <h3>🤖 AI 工具</h3>
-    <a href="https://www.deepseek.com/" target="_blank">Deepseek</a>
-    <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
-    <a href="https://claude.ai/" target="_blank">Claude</a>
-    <a href="https://copilot.microsoft.com/" target="_blank">Bing Copilot</a>
-  </div>
-
-  <div class="card" id="adult">
-    <h3>🔞 成人网站</h3>
-    <button id="toggle-adult" onclick="toggleAdult()">点击展开/收起</button>
-    <div id="adult-links">
-      <a href="https://www.pornhub.com/" target="_blank">Pornhub</a>
-      <a href="https://xvidos.com/" target="_blank">Xvidos</a>
-      <a href="https://xhamster.com/" target="_blank">Xhamster</a>
-      <a href="https://redtube.com/" target="_blank">Redtube</a>
-      <a href="https://youporn.com/" target="_blank">Youporn</a>
-      <a href="https://4hu.tv/" target="_blank">4Hu</a>
+    <div class="bookmark">
+        <button onclick="addBookmark()">📌 收藏本站</button>
     </div>
-  </div>
-</div>
 
-<footer>
-  © 2025 AliTiTi.com 保留所有权利
-</footer>
+    <div class="search">
+        <input type="text" placeholder="搜索你感兴趣的内容...">
+    </div>
 
-<script>
-async function loadWeatherAndDate() {
-  const elem = document.getElementById("weather-date");
-  const now = new Date();
-  const dateStr = now.toLocaleDateString("zh-CN", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    <div class="section">
+        <div class="categories">
+            <div class="section-title">🎮 页游</div>
+            <a href="https://game.163.com/">网易游戏</a>
+            <a href="https://www.4399.com/">4399</a>
+            <a href="https://www.7k7k.com/">7K7K</a>
+            <a href="https://www.37.com/">37网游</a>
+            <a href="https://www.yy.com/">YY游戏</a>
+            <a href="https://wan.360.cn/">360游戏</a>
+            <a href="https://www.ledu.com/">乐都网</a>
+            <a href="https://www.51.com/">51游戏</a>
+            <a href="https://www.pipaw.com/">琵琶网</a>
+            <a href="https://www.kaixin001.com/">开心网</a>
 
-  try {
-    const res = await fetch("https://ipapi.co/json");
-    const loc = await res.json();
-    const { latitude, longitude, city } = loc;
+            <div class="section-title">📰 新闻</div>
+            <a href="https://www.168worker.com/">美国华人168</a>
+            <a href="https://meiguogongzuo.com/">美国工作网</a>
+            <a href="https://www.nytimes.com/">纽约时报</a>
+            <a href="https://www.voachinese.com/">美国之音</a>
+            <a href="https://www.worldjournal.com/">世界日报</a>
+            <a href="https://cn.wsj.com/">华尔街日报中文</a>
+            <a href="https://www.bbc.com/zhongwen">BBC 中文</a>
+            <a href="https://www.rfa.org/mandarin/">自由亚洲电台</a>
+            <a href="https://www.dw.com/zh/">德国之声</a>
+            <a href="https://www.chinatimes.com/">中时电子报</a>
 
-    const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
-    const data = await weatherRes.json();
-    const temp = data.current_weather.temperature;
-    const wind = data.current_weather.windspeed;
+            <div class="section-title">🛒 购物</div>
+            <a href="https://www.amazon.com/">亚马逊</a>
+            <a href="https://www.walmart.com/">沃尔玛</a>
+            <a href="https://www.ebay.com/">易趣</a>
+            <a href="https://www.costco.com/">好市多</a>
+            <a href="https://www.target.com/">Target</a>
+            <a href="https://www.aliexpress.com/">AliExpress</a>
+            <a href="https://www.samsclub.com/">山姆会员店</a>
+            <a href="https://www.bestbuy.com/">BestBuy</a>
+            <a href="https://www.overstock.com/">Overstock</a>
+            <a href="https://www.newegg.com/">Newegg</a>
 
-    elem.textContent = `${dateStr} | ${city}气温：${temp}°C，风速：${wind} km/h`;
-  } catch {
-    elem.textContent = dateStr + " | 天气信息加载失败";
-  }
-}
-function toggleAdult() {
-  const section = document.getElementById("adult-links");
-  section.style.display = section.style.display === "block" ? "none" : "block";
-}
-function toggleLanguage() {
-  const title = document.getElementById("main-title");
-  const langBtn = document.querySelector(".lang-toggle");
-  if (title.textContent.includes("导航")) {
-    title.textContent = "AliTiTi Chinese Portal";
-    langBtn.textContent = "中";
-  } else {
-    title.textContent = "AliTiTi 华人导航";
-    langBtn.textContent = "EN";
-  }
-}
-window.onload = loadWeatherAndDate;
-</script>
+            <div class="section-title">🎬 视频</div>
+            <a href="https://www.youtube.com/">YouTube</a>
+            <a href="https://www.bilibili.tv/">Bilibili 国际版</a>
+            <a href="https://www.netflix.com/">Netflix</a>
+            <a href="https://www.hulu.com/">Hulu</a>
+            <a href="https://www.iq.com/">爱奇艺</a>
+            <a href="https://www.viki.com/">Viki</a>
+            <a href="https://www.tubi.tv/">Tubi</a>
+            <a href="https://www.peacocktv.com/">Peacock</a>
+            <a href="https://www.crunchyroll.com/">Crunchyroll</a>
+            <a href="https://www.mgtv.com/">芒果TV</a>
+
+            <div class="section-title">👥 社交</div>
+            <a href="https://wx.qq.com/">微信网页版</a>
+            <a href="https://www.facebook.com/">Facebook</a>
+            <a href="https://www.instagram.com/">Instagram</a>
+            <a href="https://www.twitter.com/">Twitter</a>
+            <a href="https://www.tiktok.com/">TikTok</a>
+            <a href="https://line.me/">LINE</a>
+            <a href="https://discord.com/">Discord</a>
+            <a href="https://www.snapchat.com/">Snapchat</a>
+            <a href="https://www.linkedin.com/">LinkedIn</a>
+            <a href="https://www.reddit.com/">Reddit</a>
+
+            <div class="section-title">🤖 AI 工具</div>
+            <a href="https://www.deepseek.com/">Deepseek</a>
+            <a href="https://chat.openai.com/">ChatGPT</a>
+            <a href="https://claude.ai/">Claude</a>
+            <a href="https://copilot.microsoft.com/">Bing Copilot</a>
+            <a href="https://gemini.google.com/">Gemini</a>
+            <a href="https://perplexity.ai/">Perplexity</a>
+            <a href="https://huggingface.co/">Hugging Face</a>
+            <a href="https://poe.com/">Poe</a>
+            <a href="https://www.phind.com/">Phind</a>
+            <a href="https://www.yiyan.baidu.com/">文心一言</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="toggle" onclick="toggleAdult()">🔞 成人专区（点击展开/收起）</h3>
+        <div id="adultContent" class="hidden">
+            <a href="https://jav101.com/">Jav101</a>
+            <a href="https://www.thisav.com/">ThisAV</a>
+            <a href="https://javdb.com/">JavDB</a>
+            <a href="https://missav.com/">MissAV</a>
+            <a href="https://supjav.com/">SupJav</a>
+            <a href="https://www.avple.tv/">Avple</a>
+            <a href="https://www.pornhub.com/">Pornhub</a>
+            <a href="https://xvideos.com/">Xvideos</a>
+            <a href="https://xhamster.com/">Xhamster</a>
+            <a href="https://redtube.com/">Redtube</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 ALITITI.COM 保留所有权利 | 联系邮箱：INFO@ALITITI.COM
+    </div>
 </body>
 </html>
