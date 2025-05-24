@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -11,7 +12,7 @@
     #weather-date { font-size: 0.9rem; position: absolute; right: 1rem; top: 0.5rem; }
     .lang-toggle { position: absolute; left: 1rem; top: 0.5rem; background: #fff; color: #2c3e50; border: none; padding: 0.2rem 0.5rem; border-radius: 5px; cursor: pointer; font-weight: bold; }
 
-    nav { position: sticky; top: 0; background: #f9f9f9; z-index: 1000; padding: 1rem 0; border-bottom: 1px solid #ddd; text-align: center; }
+    nav { position: sticky; top: 0; background: #fff; z-index: 1000; padding: 1rem 0; border-bottom: 1px solid #ddd; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
     nav a { margin: 0 1rem; color: #2c3e50; text-decoration: none; font-weight: bold; transition: color 0.3s ease, text-decoration 0.3s ease; }
     nav a:hover { color: #3498db; text-decoration: underline; }
 
@@ -20,25 +21,15 @@
     .search-box button { padding: 0.5rem 1rem; border-radius: 5px; border: 1px solid #3498db; background-color: #3498db; color: #fff; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease; }
     .search-box button:hover { background-color: #2980b9; }
 
-    .full-width { max-width: 1000px; margin: 2rem auto 0 auto; padding: 1rem; background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
-    .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1000px; margin: auto; }
-
-    .card { background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card { background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; margin-bottom: 2rem; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
     .card h3 { margin-top: 0; font-size: 1.2rem; color: #2c3e50; }
 
-    .card a, .full-width a, .link-row a {
-      display: block;
-      margin: 0.3rem 0;
-      color: #3498db;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .card a:hover, .full-width a:hover, .link-row a:hover { color: #2980b9; }
-
     .link-row { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0; }
-    .link-row a { flex: 1 1 auto; text-align: center; padding: 0.4rem 0.6rem; border-radius: 5px; background: #ecf0f1; border: 1px solid #ccc; color: #2c3e50; }
+    .link-row a { flex: 1 1 calc(25% - 1rem); text-align: center; padding: 0.4rem 0.6rem; border-radius: 5px; background: #ecf0f1; border: 1px solid #ccc; color: #2c3e50; text-decoration: none; transition: all 0.3s ease; }
     .link-row a:hover { background-color: #d0e4f7; color: #2980b9; }
+
+    .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 1rem; max-width: 1000px; margin: auto; }
 
     footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #777; background: #2c3e50; color: #fff; }
 
@@ -70,9 +61,78 @@
   </form>
 </div>
 
-<div class="full-width">
-  <iframe src="https://chat.openai.com/chat" style="width:100%; height:600px; border:none; border-radius:8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"></iframe>
+<div class="card" id="common">
+  <h3>🛠️ 常用</h3>
+  <div class="link-row">
+    <a href="https://www.168worker.com/" target="_blank">美国华人168</a>
+    <a href="https://meiguogongzuo.com/" target="_blank">美国工作网</a>
+    <a href="https://www.nytimes.com/" target="_blank">纽约时报</a>
+    <a href="https://www.voachinese.com/" target="_blank">美国之音</a>
+    <a href="https://www.worldjournal.com/" target="_blank">世界日报</a>
+    <a href="https://www.baidu.com" target="_blank">百度</a>
+    <a href="https://www.google.com" target="_blank">Google</a>
+    <a href="https://www.yahoo.com" target="_blank">Yahoo</a>
+    <a href="https://www.bing.com" target="_blank">Bing</a>
+    <a href="https://cn.bing.com" target="_blank">必应中国</a>
+  </div>
 </div>
+
+<div class="categories">
+  <div class="card" id="news">
+    <h3>📰 新闻</h3>
+    <a href="https://www.168worker.com/" target="_blank">美国华人168</a>
+    <a href="https://meiguogongzuo.com/" target="_blank">美国工作网</a>
+    <a href="https://www.nytimes.com/" target="_blank">纽约时报</a>
+    <a href="https://www.voachinese.com/" target="_blank">美国之音</a>
+    <a href="https://www.worldjournal.com/" target="_blank">世界日报</a>
+  </div>
+
+  <div class="card" id="shopping">
+    <h3>🛒 购物</h3>
+    <a href="https://Amazon.com/" target="_blank">亚马逊</a>
+    <a href="https://www.walmart.com/" target="_blank">沃尔玛</a>
+    <a href="https://www.ebay.com/" target="_blank">易趣</a>
+  </div>
+
+  <div class="card" id="video">
+    <h3>🎬 视频</h3>
+    <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+    <a href="https://www.bilibili.tv/" target="_blank">Bilibili 国际版</a>
+    <a href="https://www.netflix.com/" target="_blank">Netflix</a>
+  </div>
+
+  <div class="card" id="social">
+    <h3>👥 社交</h3>
+    <a href="https://wx.qq.com/" target="_blank">微信网页版</a>
+    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+  </div>
+
+  <div class="card" id="ai">
+    <h3>🤖 AI 工具</h3>
+    <a href="https://www.deepseek.com/" target="_blank">Deepseek</a>
+    <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
+    <a href="https://claude.ai/" target="_blank">Claude</a>
+    <a href="https://copilot.microsoft.com/" target="_blank">Bing Copilot</a>
+  </div>
+
+  <div class="card" id="adult">
+    <h3>🔞 成人网站</h3>
+    <button id="toggle-adult" onclick="toggleAdult()">点击展开/收起</button>
+    <div id="adult-links">
+      <a href="https://www.pornhub.com/" target="_blank">Pornhub</a>
+      <a href="https://xvidos.com/" target="_blank">Xvidos</a>
+      <a href="https://xhamster.com/" target="_blank">Xhamster</a>
+      <a href="https://redtube.com/" target="_blank">Redtube</a>
+      <a href="https://youporn.com/" target="_blank">Youporn</a>
+      <a href="https://4hu.tv/" target="_blank">4Hu</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 AliTiTi.com 保留所有权利
+</footer>
 
 <script>
 async function loadWeatherAndDate() {
