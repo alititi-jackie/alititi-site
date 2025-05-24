@@ -263,7 +263,7 @@
         </div>
 
         <div class="section">
-            <h3 style="cursor: pointer;" onclick="toggleAdultSection()">🔞  ▼</h3>
+            <h3 style="cursor: pointer;" onclick="toggleAdultSection()">🔞▼</h3>
             <div id="adult-links" style="display: none; margin-top: 10px;">
         <a href="https://youporn.com/" target="_blank">Youporn</a>
         <a href="https://4hu.tv/" target="_blank">4Hu</a>
@@ -279,7 +279,18 @@
         <a href="https://redtube.com/"target="_blank">Redtube</a>
       </div>
    </div>
-
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleBtn = document.getElementById("toggle-adult");
+      const content = document.getElementById("adult-links");
+  
+      toggleBtn.addEventListener("click", function () {
+        const isHidden = content.style.display === "none";
+        content.style.display = isHidden ? "block" : "none";
+        toggleBtn.innerHTML = isHidden ? "🔞▲" : "🔞▼";
+      });
+    });
+  </script>
 
    <button class="back-to-top" onclick="scrollToTop()">⬆️ 回到顶部</button>
 
