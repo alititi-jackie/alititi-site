@@ -264,27 +264,49 @@
      </div>
           
 <!-- 成人专区 -->
-<div class="card" style="margin-top: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 12px; background-color: #fff;">
-    <div id="adult-toggle" style="cursor: pointer; font-size: 24px; text-align: center;">🔞</div>
-    <div id="adult-content" style="display: none; margin-top: 10px; text-align: center;">
-        <div id="adult-content" class="adult-links">
-        <a href="https://youporn.com/" target="_blank">Youporn</a>
-        <a href="https://4hu.tv/" target="_blank">4Hu</a>
-        <a href="https://jav101.com/"target="_blank">Jav101</a>
-        <a href="https://www.thisav.com/"target="_blank">ThisAV</a>
-        <a href="https://javdb.com/"target="_blank">JavDB</a>
-        <a href="https://missav.com/"target="_blank">MissAV</a>
-        <a href="https://supjav.com/"target="_blank">SupJav</a>
-        <a href="https://www.avple.tv/"target="_blank">Avple</a>
-        <a href="https://www.pornhub.com/"target="_blank">Pornhub</a>
-        <a href="https://xvideos.com/"target="_blank">Xvideos</a>
-        <a href="https://xhamster.com/"target="_blank">Xhamster</a>
-        <a href="https://redtube.com/"target="_blank">Redtube</a>
-        <a href="https://91porn.com/" target="_blank">91Porn</a>
-        <a href="https://javlibrary.com/" target="_blank">JAV Library</a>
-
+<div class="card adult-section">
+    <div id="adult-toggle" class="adult-toggle">🔞</div>
+    <div id="adult-content" class="adult-links" style="display: none;">
+      <a href="https://youporn.com/" target="_blank">Youporn</a>
+      <a href="https://4hu.tv/" target="_blank">4Hu</a>
+      <a href="https://jav101.com/" target="_blank">Jav101</a>
+      <a href="https://www.thisav.com/" target="_blank">ThisAV</a>
+      <a href="https://javdb.com/" target="_blank">JavDB</a>
+      <a href="https://missav.com/" target="_blank">MissAV</a>
+      <a href="https://supjav.com/" target="_blank">SupJav</a>
+      <a href="https://www.avple.tv/" target="_blank">Avple</a>
+      <a href="https://www.pornhub.com/" target="_blank">Pornhub</a>
+      <a href="https://xvideos.com/" target="_blank">Xvideos</a>
+      <a href="https://xhamster.com/" target="_blank">Xhamster</a>
+      <a href="https://redtube.com/" target="_blank">Redtube</a>
+      <a href="https://91porn.com/" target="_blank">91Porn</a>
+      <a href="https://javlibrary.com/" target="_blank">JAV Library</a>
     </div>
   </div>
+  
+  <style>
+    .adult-section {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      background-color: #fff;
+      text-align: center;
+    }
+  
+    .adult-toggle {
+      cursor: pointer;
+      font-size: 24px;
+      user-select: none;
+    }
+  
+    .adult-links a {
+      margin: 5px 10px;
+      display: inline-block;
+      text-decoration: none;
+      color: #000;
+    }
+  </style>
   
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -292,8 +314,7 @@
       const content = document.getElementById("adult-content");
   
       toggle.addEventListener("click", function () {
-        const visible = content.style.display === "block";
-        content.style.display = visible ? "none" : "block";
+        content.style.display = content.style.display === "block" ? "none" : "block";
       });
     });
   </script>
