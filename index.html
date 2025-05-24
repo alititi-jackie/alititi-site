@@ -261,31 +261,42 @@
         <a href="https://github.com/features/copilot"target="_blank">Github Copilot</a>
         <a href="https://www.suno.ai/"target="_blank">Suno AI</a>
         </div>
+     </div>
+          
+<!-- 成人专区 -->
+<div class="card" style="margin-top: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 12px; background-color: #fff;">
+    <div id="adult-toggle" style="cursor: pointer; font-size: 24px; text-align: center;">🔞</div>
+    <div id="adult-content" style="display: none; margin-top: 10px; text-align: center;">
+        <a href="https://youporn.com/" target="_blank">Youporn</a>
+        <a href="https://4hu.tv/" target="_blank">4Hu</a>
+        <a href="https://jav101.com/"target="_blank">Jav101</a>
+        <a href="https://www.thisav.com/"target="_blank">ThisAV</a>
+        <a href="https://javdb.com/"target="_blank">JavDB</a>
+        <a href="https://missav.com/"target="_blank">MissAV</a>
+        <a href="https://supjav.com/"target="_blank">SupJav</a>
+        <a href="https://www.avple.tv/"target="_blank">Avple</a>
+        <a href="https://www.pornhub.com/"target="_blank">Pornhub</a>
+        <a href="https://xvideos.com/"target="_blank">Xvideos</a>
+        <a href="https://xhamster.com/"target="_blank">Xhamster</a>
+        <a href="https://redtube.com/"target="_blank">Redtube</a>
+        <a href="https://91porn.com/" target="_blank">91Porn</a>
+        <a href="https://javlibrary.com/" target="_blank">JAV Library</a>
 
-        <div class="section">
-            <h3 id="toggle-adult" style="cursor: pointer;">🔞 成人专区 ▼</h3>
-            <div id="adult-links" style="display: none; margin-top: 10px;">
-              <a href="https://91porn.com/" target="_blank">91Porn</a>
-              <a href="https://xvideos.com/" target="_blank">XVideos</a>
-              <a href="https://xhamster.com/" target="_blank">XHamster</a>
-              <a href="https://pornhub.com/" target="_blank">Pornhub</a>
-              <a href="https://javlibrary.com/" target="_blank">JAV Library</a>
-            </div>
-          </div>
-          
-          <script>
-            document.addEventListener("DOMContentLoaded", function () {
-              const toggleBtn = document.getElementById("toggle-adult");
-              const content = document.getElementById("adult-links");
-          
-              toggleBtn.addEventListener("click", function () {
-                const isHidden = content.style.display === "none";
-                content.style.display = isHidden ? "block" : "none";
-                toggleBtn.innerHTML = isHidden ? "🔞 成人专区 ▲" : "🔞 成人专区 ▼";
-              });
-            });
-          </script>
-          
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("adult-toggle");
+      const content = document.getElementById("adult-content");
+  
+      toggle.addEventListener("click", function () {
+        const visible = content.style.display === "block";
+        content.style.display = visible ? "none" : "block";
+      });
+    });
+  </script>
+
    <button class="back-to-top" onclick="scrollToTop()">⬆️ 回到顶部</button>
 
    <div class="footer">
