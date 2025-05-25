@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alititi.com - 美国华人生活导航平台</title>
+  <title>Alititi.com -华人生活指南</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -135,6 +136,7 @@
     <button onclick="addBookmark()">📌 收藏本站</button>
   </div>
 
+<!-- 搜索区 -->
   <header>
     <div class="logo"><a href="/">Alititi.com 华人生活指南</a></div>
     <div class="weather" id="weather">正在获取天气信息...</div>
@@ -146,6 +148,7 @@
     </form>
   </div>
 
+<!-- 推荐专区 -->
     <div class="recommend">
         <a href="https://translate.google.com/?hl=zh-cn&sl=auto&tl=zh-CN&op=translate" target="_blank">Google翻译</a>
         <a href="https://www.168worker.com/" target="_blank">美国华人168</a>
@@ -166,6 +169,7 @@
         <a href="https://qzone.qq.com/" target="_blank">QQ空间</a>
     </div>
 
+<!-- 部分专区 -->
     <div class="section">
         <div><strong>🎬 视频：</strong>
           <a href="https://www.youtube.com/"target="_blank">YouTube</a>
@@ -289,9 +293,13 @@
          <a href="https://www.dw.com/zh/"target="_blank">德国之声</a>
          <a href="https://www.chinatimes.com/"target="_blank">中时电子报</a>
       
-        </div>
-        <div style="margin-top:10px;"><strong>📰国内常用：</strong>
-        <a href="https://www.baidu.com/" target="_blank">百度</a>
+    </div>
+     </div>
+
+<!-- 单分区 -->
+<div class="recommend">
+        <div><strong>📰国内常用：</strong>
+         <a href="https://www.baidu.com/" target="_blank">百度</a>
         <a href="https://www.qq.com/" target="_blank">腾讯网</a>
         <a href="https://www.taobao.com/" target="_blank">淘宝网</a>
         <a href="https://www.jd.com/" target="_blank">京东</a>
@@ -307,25 +315,73 @@
         <a href="https://www.iqiyi.com/" target="_blank">爱奇艺</a>
         <a href="https://youku.com/" target="_blank">优酷</a>
 
-        </div>
-      <div style="margin-top:10px;"><strong>其它：</strong>
-      <a href="https://ekitchensupply.com/zh" target="_blank">ekitchensupply</a>
-      <a href="https://www.pandarange.com/" target="_blank">L&T 餐厅设备公司</a>
-      <a href="https://www.youtube.com/@ltadministrator6042/videos" target="_blank">L&T youtube</a>
-      <a href="https://www.facebook.com/people/LT-Restaurant-Equipment-Inc/61558406247428/" target="_blank">L&T Facebook</a>    
-      <a href="https://www.youtube.com/@alititi-Jackie" target="_blank">Alititi youtube</a>    
-      <a href="https://acm-fan.com/" target="_blank">厨房排气扇</a>
-      <a href="https://user.qzone.qq.com/81271555/main" target="_blank">Jackie的QQ空间</a>
-      <a href="https://kingskitchenusa.com/" target="_blank">金煌煲煲好</a>
-      <a href="https://github.com/" target="_blank">github</a>
-      <a href="https://framer.com/" target="_blank">framer</a>
-      <a href="https://www.cloudflare.com/" target="_blank">cloudflare</a>
-      <a href="https://www.sxl.cn/" target="_blank">上线了</a>
-      <a href="https://www.metinfo.cn/" target="_blank">米拓</a>
-
-
-      </div>
      </div>
+ </div>
+
+<!-- 折叠专区 -->
+
+<div class="card toggle-section">
+  <div class="toggle-header" onclick="toggleSection('otherLinks')">📁 其它</div>
+  <div id="otherLinks" class="toggle-content" style="display: none;">
+      <a href="https://ekitchensupply.com/zh" target="_blank">ekitchensupply</a>
+     <a href="https://www.pandarange.com/" target="_blank">L&T 餐厅设备公司</a>
+     <a href="https://www.youtube.com/@ltadministrator6042/videos" target="_blank">L&T youtube</a>
+     <a href="https://www.facebook.com/people/LT-Restaurant-Equipment-Inc/61558406247428/" target="_blank">L&T Facebook</a>    
+     <a href="https://www.youtube.com/@alititi-Jackie" target="_blank">Alititi youtube</a>    
+     <a href="https://acm-fan.com/" target="_blank">厨房排气扇</a>
+     <a href="https://user.qzone.qq.com/81271555/main" target="_blank">Jackie的QQ空间</a>
+     <a href="https://kingskitchenusa.com/" target="_blank">金煌煲煲好</a>
+     <a href="https://github.com/" target="_blank">github</a>
+     <a href="https://framer.com/" target="_blank">framer</a>
+     <a href="https://www.cloudflare.com/" target="_blank">cloudflare</a>
+     <a href="https://www.sxl.cn/" target="_blank">上线了</a>
+     <a href="https://www.metinfo.cn/" target="_blank">米拓</a>
+    <a href="https://www.deepl.com/translator" target="_blank">DeepL翻译</a>
+    <a href="https://translate.google.com/" target="_blank">Google翻译</a>
+    <a href="https://mail.proton.me/" target="_blank">ProtonMail</a>
+    <a href="https://www.oalley.fr/" target="_blank">Oalley地图</a>
+    <a href="https://www.speedtest.net/" target="_blank">网速测试</a>
+    <a href="https://www.photopea.com/" target="_blank">在线PS</a>
+    <a href="https://www.remove.bg/" target="_blank">图片去背</a>
+    <a href="https://tinywow.com/" target="_blank">TinyWow工具箱</a>
+    <a href="https://dict.eudic.net/" target="_blank">欧路词典</a>
+    <a href="https://you.com/" target="_blank">You.com</a>
+    <a href="https://www.mediafire.com/" target="_blank">MediaFire网盘</a>
+    <a href="https://terabox.com/" target="_blank">Terabox网盘</a>
+    <a href="https://chat.lmsys.org/" target="_blank">Chatbot Arena</a>
+    <a href="https://gemini.google.com/" target="_blank">Gemini</a>
+    <a href="https://claude.ai/" target="_blank">Claude</a>
+    <a href="https://www.perplexity.ai/" target="_blank">Perplexity</a>
+    <a href="https://www.kdocs.cn/latest?from=ai_login" target="_blank">金山文档</a>
+    <a href="https://www.yuque.com/" target="_blank">语雀</a>
+  </div>
+</div>
+
+<style>
+  .toggle-header {
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .toggle-content a {
+    margin: 5px 10px;
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+  }
+</style>
+
+<script>
+  function toggleSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      const current = window.getComputedStyle(section).display;
+      section.style.display = current === "none" ? "block" : "none";
+    }
+  }
+</script>
 
 <!-- 成人专区 -->
 <div class="card adult-section">
@@ -347,6 +403,7 @@
       <a href="https://jable.tv//" target="_blank">jabley</a>
       <a href="https://www.javlibrary.com/cn/" target="_blank">JAV Library</a>
     </div>
+
   </div>  
   
   <style>
@@ -361,7 +418,7 @@
   
     .adult-toggle {
       cursor: pointer;
-      font-size: 24px;
+      font-size: 16px;
       user-select: none;
     }
   
@@ -372,7 +429,8 @@
       color: #000;
     }
   </style>
-  
+
+  <!-- 回到顶部按钮 -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const toggle = document.getElementById("adult-toggle");
@@ -386,6 +444,7 @@
 
    <button class="back-to-top" onclick="scrollToTop()">⬆️ 回到顶部</button>
 
+<!-- 底部 -->
    <div class="footer">
      © 2025 <a href="https://www.alititi.com">Alititi.com</a> 保留所有权利 | 联系邮箱：<a href="mailto:jack71000@gmail.com">jack71000@gmail.com</a>
    </div>
