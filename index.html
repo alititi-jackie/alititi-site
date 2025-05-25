@@ -284,43 +284,7 @@
         <a href="https://youku.com/" target="_blank">优酷</a>
 
         </div>
-        <style>
-            .collapsible .nav-content {
-              display: none;
-              margin-top: 10px;
-            }
-          
-            .collapsible.active .nav-content {
-              display: block;
-            }
-          
-            .category-title {
-              cursor: pointer;
-              font-size: 18px;
-              margin: 0;
-              padding: 10px 0;
-              border-top: 1px solid #ccc;
-              user-select: none;
-            }
-          
-            .nav-content a {
-              display: inline-block;
-              margin: 4px 8px;
-              color: #007BFF;
-              text-decoration: none;
-            }
-          
-            .nav-content a:hover {
-              text-decoration: underline;
-            }
-          
-            .section {
-              margin-bottom: 20px;
-            }
-          </style>
-          <div class="section collapsible">
-            <h2 class="category-title">📁 其它</h2>
-            <div class="nav-content">
+      <div style="margin-top:10px;"><strong>其它：</strong>
       <a href="https://ekitchensupply.com/zh" target="_blank">ekitchensupply</a>
       <a href="https://www.pandarange.com/" target="_blank">L&T 餐厅设备公司</a>
       <a href="https://www.youtube.com/@ltadministrator6042/videos" target="_blank">L&T youtube</a>
@@ -330,20 +294,6 @@
 
       </div>
      </div>
-     <script>
-        window.addEventListener('DOMContentLoaded', () => {
-          // 如果你已经有 getLocationWeather() 函数，可保留；否则可删掉这行
-          if (typeof getLocationWeather === 'function') getLocationWeather();
-      
-          document.querySelectorAll('.collapsible .category-title').forEach(title => {
-            title.addEventListener('click', () => {
-              const section = title.parentElement;
-              section.classList.toggle('active');
-            });
-          });
-        });
-      </script>
-      
 
 <!-- 成人专区 -->
 <div class="card adult-section">
@@ -391,7 +341,16 @@
     }
   </style>
   
-
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("adult-toggle");
+      const content = document.getElementById("adult-content");
+  
+      toggle.addEventListener("click", function () {
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
 
    <button class="back-to-top" onclick="scrollToTop()">⬆️ 回到顶部</button>
 
