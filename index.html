@@ -65,7 +65,7 @@
       outline: none;
       box-shadow: 0 0 8px rgba(0,0,0,0.05);
     }
-    .nav, .categories, .card, .bookmark, .recommend, .section {
+    .nav, .categories, .card, .bookmark, .recommend, .section, .section1, .section2, .section3 {
       background: white;
       margin: 10px auto;
       padding: 10px;
@@ -77,7 +77,7 @@
       text-decoration: none;
       color: inherit;
     }
-    .recommend a, .section a {
+    .recommend a, .section a, .section1 a, .section2 a, .section3 a {
       display: inline-block;
       margin: 5px 10px;
       font-size: 14px;
@@ -297,7 +297,7 @@
      </div>
 
 <!-- 单分区 -->
-<div class="recommend">
+<div class="section1">
         <div><strong>📰国内常用：</strong>
          <a href="https://www.baidu.com/" target="_blank">百度</a>
         <a href="https://www.qq.com/" target="_blank">腾讯网</a>
@@ -319,8 +319,7 @@
  </div>
 
 <!-- 折叠专区 -->
-
-<div class="card toggle-section">
+<div class="section2">
   <div class="toggle-header" onclick="toggleSection('otherLinks')">📁 其它</div>
   <div id="otherLinks" class="toggle-content" style="display: none;">
       <a href="https://ekitchensupply.com/zh" target="_blank">ekitchensupply</a>
@@ -357,22 +356,6 @@
   </div>
 </div>
 
-<style>
-  .toggle-header {
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .toggle-content a {
-    margin: 5px 10px;
-    display: inline-block;
-    text-decoration: none;
-    color: #000;
-  }
-</style>
-
 <script>
   function toggleSection(id) {
     const section = document.getElementById(id);
@@ -387,18 +370,18 @@
 <div class="card adult-section">
     <div id="adult-toggle" class="adult-toggle">🔞</div>
     <div id="adult-content" class="adult-links" style="display: none;">
-      <a href="https://youporn.com/" target="_blank">Youporn</a>
       <a href="https://4hu.tv/" target="_blank">4Hu</a>
+      <a href="https://xvideos.com/" target="_blank">Xvideos</a>
+      <a href="https://www.pornhub.com/" target="_blank">Pornhub</a>
+      <a href="https://xhamster.com/" target="_blank">Xhamster</a>
+      <a href="https://redtube.com/" target="_blank">Redtube</a>
+      <a href="https://youporn.com/" target="_blank">Youporn</a>
       <a href="https://jav101.com/" target="_blank">Jav101</a>
       <a href="https://www.thisav.com/" target="_blank">ThisAV</a>
       <a href="https://javdb.com/" target="_blank">JavDB</a>
       <a href="https://missav.com/" target="_blank">MissAV</a>
       <a href="https://supjav.com/" target="_blank">SupJav</a>
       <a href="https://www.avple.tv/" target="_blank">Avple</a>
-      <a href="https://www.pornhub.com/" target="_blank">Pornhub</a>
-      <a href="https://xvideos.com/" target="_blank">Xvideos</a>
-      <a href="https://xhamster.com/" target="_blank">Xhamster</a>
-      <a href="https://redtube.com/" target="_blank">Redtube</a>
       <a href="https://91porn.com/" target="_blank">91Porn</a>
       <a href="https://jable.tv//" target="_blank">jabley</a>
       <a href="https://www.javlibrary.com/cn/" target="_blank">JAV Library</a>
@@ -450,3 +433,6 @@
    </div>
  </body>
  </html>
+
+
+
