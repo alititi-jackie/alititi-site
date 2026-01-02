@@ -1,103 +1,236 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alititi - 孩子的第一个AI玩伴</title>
+  <meta charset="UTF-8" />
+
+  <!-- ======【模板配置区：只改这里】====== -->
+  <script>
+    const DOMAIN_NAME = "alititi.COM";
+    const DOMAIN_DESC_CN = "简洁易记 · 品牌域名 · 国际通用 .com";
+    const DOMAIN_DESC_EN = "Only 8 letters, easy to spell and remember, allowing users to access it directly—ideal for brand building and social media promotion.";
+    const ALIYUN_LINK = "https://mi.aliyun.com/domain-detail?domain=alititi.com&scm=true";
+    const GODADDY_LINK = "https://www.godaddy.com/zh-sg/domainsearch/find?domainToCheck=ALITITI.COM";
+    const RETURN_URL = "https://openaa.com";
+    const COUNTDOWN_SECONDS = 20;
+  </script>
+  <!-- ======【配置区结束】====== -->
+
+  <title>BOBAUP.COM｜精品品牌域名出售</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BOBAUP.COM 精品品牌域名出售，简短好记，适合奶茶、饮品、潮流品牌。由 OpenAA 推荐。" />
+
   <style>
     body {
-      font-family: "Helvetica Neue", sans-serif;
       margin: 0;
-      background-color: #fffaf3;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f7f9fc;
       color: #333;
-      line-height: 1.6;
     }
-    header, section {
-      padding: 40px 20px;
-      text-align: center;
+
+    header {
+      background: linear-gradient(135deg, #0b3c5d, #1e6fa3);
+      color: #fff;
+      padding: 22px 20px;
     }
-    h1 {
-      font-size: 2.8em;
-      color: #f59e0b;
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 1px;
     }
-    h2 {
-      color: #10b981;
+
+    header p {
+      margin: 6px 0 0;
+      font-size: 14px;
+      opacity: 0.9;
     }
-    .image {
-      max-width: 90%;
-      margin: 20px auto;
-    }
-    .image img {
-      width: 100%;
+
+    .container {
+      max-width: 900px;
+      margin: 25px auto;
+      padding: 35px 25px;
+      background: #fff;
       border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
-    .features, .story, .packaging, .contact {
-      max-width: 800px;
-      margin: auto;
-      text-align: left;
+
+    .top-bar {
+      margin-bottom: 25px;
     }
-    .features ul, .packaging ul {
-      list-style-type: square;
-      padding-left: 20px;
+
+    .back-button {
+      background: none;
+      border: none;
+      color: #0b3c5d;
+      font-size: 14px;
+      cursor: pointer;
     }
-    .contact a {
+
+    .back-button:hover {
+      text-decoration: underline;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #0b3c5d;
+      font-size: 30px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .subtitle-en {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 25px;
+    }
+
+    .highlight {
+      background: #f1f6fb;
+      padding: 18px 20px;
+      border-left: 4px solid #0b3c5d;
+      margin-bottom: 30px;
+      border-radius: 6px;
+    }
+
+    .highlight p {
+      margin: 6px 0;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .buttons {
+      margin: 30px 0;
+    }
+
+    .buy-button {
       display: inline-block;
-      margin: 10px 5px;
-      padding: 12px 20px;
-      background-color: #f59e0b;
-      color: white;
-      border-radius: 8px;
+      margin: 10px 12px 0 0;
+      padding: 12px 22px;
+      background: #0b3c5d;
+      color: #fff;
       text-decoration: none;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: background 0.2s ease;
+    }
+
+    .buy-button:hover {
+      background: #092f49;
+    }
+
+    .contact {
+      margin-top: 35px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .contact a {
+      color: #0b3c5d;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    footer strong {
+      color: #0b3c5d;
     }
   </style>
+
+  <!-- ====== 倒计时 + 自动返回 ====== -->
+  <script>
+    let seconds = COUNTDOWN_SECONDS;
+
+    function countdown() {
+      const cn = document.getElementById("countdown-cn");
+      const en = document.getElementById("countdown-en");
+
+      if (cn) cn.textContent = seconds;
+      if (en) en.textContent = seconds;
+
+      if (seconds <= 0) {
+        window.location.href = RETURN_URL;
+      }
+      seconds--;
+    }
+
+    setInterval(countdown, 1000);
+  </script>
 </head>
+
 <body>
-  <header>
-    <h1>Alititi：孩子的第一个AI玩伴</h1>
-    <div class="image">
-      <img src="alititi-banner.png" alt="Alititi 玩具大图">
-    </div>
-  </header>
 
-  <section class="story">
-    <h2>角色介绍</h2>
-    <div class="image">
-      <img src="alititi-story.png" alt="Alititi 插画">
-    </div>
-    <p>Alititi 来自遥远的 AI 星球，是一只充满好奇与智慧的萌宠机器人。它乘着知识飞船来到地球，渴望与人类小朋友成为好朋友，一起学习、探索、成长。</p>
-  </section>
+<header>
+  <h1>OpenAA</h1>
+  <p>美国华人生活入口 · 精选域名推荐</p>
+</header>
 
-  <section class="features">
-    <h2>功能亮点</h2>
-    <ul>
-      <li>互动聊天：听得懂、聊得开心，会讲故事还能猜谜语</li>
-      <li>学习小帮手：英语单词、数学题，每日小知识轻松学</li>
-      <li>情绪陪伴：识别孩子语气并做出贴心回应</li>
-      <li>哄睡模式：柔和夜灯、安抚音乐陪伴入眠</li>
-    </ul>
-  </section>
+<div class="container">
 
-  <section class="packaging">
-    <h2>包装与形象展示</h2>
-    <div class="image">
-      <img src="alititi-packaging.png" alt="Alititi 包装展示">
-    </div>
-    <ul>
-      <li>狐狸造型：聪明活泼</li>
-      <li>猫头鹰造型：睿智友好</li>
-      <li>小龙造型：勇敢幻想</li>
-      <li>橘猫造型：温柔可爱</li>
-    </ul>
-  </section>
+  <div class="top-bar">
+    <a href="https://openaa.com">
+      <button class="back-button">← 返回 OpenAA 首页</button>
+    </a>
+  </div>
 
-  <section class="contact">
-    <h2>购买引导 / 联系方式</h2>
-    <p>欢迎联系了解更多，或扫码预约购买：</p>
-    <a href="mailto:323748@gmail.com">📧 邮件联系</a>
-    <a href="#">💬 微信联系：hola24</a>
-    <a href="#">🛒 前往购买平台</a>
-    <a href="https://alititi.com/About">关于Alititi</a>
-  </section>
+  <h2 id="domain-name"></h2>
+  <div class="subtitle" id="domain-desc-cn"></div>
+  <div class="subtitle-en" id="domain-desc-en"></div>
+
+  <div class="highlight">
+    <p>✔ 简短好记，品牌感强</p>
+    <p>✔ 适合官网、连锁门店、跨境项目</p>
+    <p>✔ 稀缺优质域名，先到先得</p>
+  </div>
+
+  <div class="buttons">
+    <a class="buy-button" id="aliyun-buy" target="_blank">阿里云购买</a>
+    <a class="buy-button" id="godaddy-buy" target="_blank">GoDaddy 查看</a>
+  </div>
+
+  <p><strong>欢迎洽谈购买 | Available for acquisition</strong></p>
+
+  <div class="contact">
+    联系邮箱 / Contact：
+    <a href="mailto:323748@gmail.com">323748@gmail.com</a>
+  </div>
+
+  <p style="margin-top:20px;font-size:13px;color:#777;">
+    <span id="countdown-cn">10</span> 秒后将自动返回 OpenAA 首页<br />
+    Redirecting to OpenAA homepage in
+    <span id="countdown-en">10</span> seconds
+  </p>
+
+</div>
+
+<footer>
+  © 2025 <strong>OpenAA</strong> · 美国华人生活入口
+</footer>
+
+<!-- ====== 自动注入内容 ====== -->
+<script>
+  document.getElementById("domain-name").textContent = DOMAIN_NAME;
+  document.getElementById("domain-desc-cn").textContent = DOMAIN_DESC_CN;
+  document.getElementById("domain-desc-en").textContent = DOMAIN_DESC_EN;
+  document.getElementById("aliyun-buy").href = ALIYUN_LINK;
+  document.getElementById("godaddy-buy").href = GODADDY_LINK;
+</script>
 
 </body>
 </html>
+
